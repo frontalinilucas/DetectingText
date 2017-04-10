@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Detecting Text</string>
+
+    <string name="selectImage">Seleccionar imagen</string>
+    <string name="errorSelectImage">Hubo un error. Intente de nuevo mas tarde.</string>
 </resources>
