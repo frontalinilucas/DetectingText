@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
@@ -66,7 +67,7 @@ public class DetectTextActivity extends BaseActivity {
     AppCompatTextView mNoTextInImage;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detect_text);
         ButterKnife.bind(this);
@@ -75,13 +76,6 @@ public class DetectTextActivity extends BaseActivity {
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
-        if(savedInstanceState != null){
-            if(savedInstanceState.containsKey(KEY_IMAGE_URI))
-                mUri = savedInstanceState.getParcelable(KEY_IMAGE_URI);
-        }else{
-            mUri = getIntent().getParcelableExtra(KEY_IMAGE_URI);
         }
 
         mApiServices = new Retrofit.Builder()
@@ -95,7 +89,20 @@ public class DetectTextActivity extends BaseActivity {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(ContextCompat.getDrawable(DetectTextActivity.this, R.drawable.custom_dividerrecyclerview)));
         mRecyclerView.addItemDecoration(new DividerEndItemDecoration(ContextCompat.getDrawable(DetectTextActivity.this, R.drawable.custom_dividerrecyclerview)));
 
-        getImageText();
+        //Thread para que el parseo del Uri, no trabe el main Thread
+        Thread threadParseUri = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if(savedInstanceState != null){
+                    if(savedInstanceState.containsKey(KEY_IMAGE_URI))
+                        mUri = savedInstanceState.getParcelable(KEY_IMAGE_URI);
+                }else{
+                    mUri = getIntent().getParcelableExtra(KEY_IMAGE_URI);
+                }
+                getImageText();
+            }
+        });
+        threadParseUri.start();
     }
 
     @Override
@@ -146,4 +153,5 @@ public class DetectTextActivity extends BaseActivity {
             }
         });
     }
+
 }
