@@ -18,8 +18,16 @@ public class AnnotationRequest {
     private List<Feature> mFeaturesList;
 
     public AnnotationRequest(Image image){
-        this.mImage = image;
+        mImage = image;
         mFeaturesList = new ArrayList<>();
+    }
+
+    public Image getImage() {
+        return mImage;
+    }
+
+    public void setImage(Image image) {
+        mImage = image;
     }
 
     public void add(Feature feature){

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="library-1.0.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/beb29897a16721a892ceac9b7a684999f287b116/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/beb29897a16721a892ceac9b7a684999f287b116/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.lusfold.spinnerloading/library/1.0.0/7427914ee23702395d4280324dff93f8b832a34/library-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

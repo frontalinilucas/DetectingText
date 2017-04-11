@@ -10,7 +10,10 @@ import java.util.List;
 
 public class AnnotationResponse {
 
-     @SerializedName("textAnnotations")
-     private List<EntityAnnotation> mAnnotationsList;
+    @SerializedName("textAnnotations")
+    private List<EntityAnnotation> mAnnotationsList;
 
+    public List<EntityAnnotation> getAnnotationsList() {
+        return mAnnotationsList;
+    }
 }

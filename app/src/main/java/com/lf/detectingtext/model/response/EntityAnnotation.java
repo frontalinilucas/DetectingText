@@ -14,4 +14,11 @@ public class EntityAnnotation {
      @SerializedName("description")
      private String mDescription;
 
+     public String getLocale() {
+          return mLocale;
+     }
+
+     public String getDescription() {
+          return mDescription;
+     }
 }

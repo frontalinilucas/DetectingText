@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
@@ -20,7 +19,7 @@ import java.io.IOException;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SelectImageActivity extends AppCompatActivity {
+public class SelectImageActivity extends BaseActivity {
 
     private static final String KEY_IMAGE_URI = "KEY_IMAGE_URI";
     private static final int PICK_IMAGE = 501;
@@ -63,7 +62,7 @@ public class SelectImageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mUri != null){
-                    startActivity(DetectTextActivity.getIntent(SelectImageActivity.this, mUri));
+                    startActivity(SelectImageActivity.this, DetectTextActivity.getIntent(SelectImageActivity.this, mUri));
                 }else{
                     Snackbar.make(mFab, getString(R.string.noImageSelected), Snackbar.LENGTH_LONG).show();
                 }
@@ -91,6 +90,8 @@ public class SelectImageActivity extends AppCompatActivity {
     }
 
     private void showImage() {
+        if(mUri == null)
+            return;
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), mUri);
             mImageSelected.setImageBitmap(bitmap);

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="marginImageView">5dp</dimen>
-    <dimen name="marginFab">16dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="paddingFilaTextDescription">16dp</dimen>
 </resources>

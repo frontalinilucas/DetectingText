@@ -12,10 +12,14 @@ public class Image {
     private String mContent;
 
     public Image(String content){
-        this.mContent = content;
+        mContent = content;
     }
 
     public String getContent() {
         return mContent;
+    }
+
+    public void setContent(String content) {
+        mContent = content;
     }
 }

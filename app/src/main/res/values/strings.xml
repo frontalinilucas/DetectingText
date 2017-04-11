@@ -6,4 +6,5 @@
     <string name="selectImage">Seleccionar imagen</string>
     <string name="errorSelectImage">Hubo un error. Intente de nuevo mas tarde.</string>
     <string name="noImageSelected">Debe seleccionar una imagen para continuar.</string>
+    <string name="noTextInImage">La imagen no contiene texto, intente de nuevo con otra imagen.</string>
 </resources>

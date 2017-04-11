@@ -12,10 +12,14 @@ public class Feature {
     private String mType;
 
     public Feature(String type){
-        this.mType = type;
+        mType = type;
     }
 
     public String getType() {
         return mType;
+    }
+
+    public void setType(String type) {
+        mType = type;
     }
 }
