@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Detecting Text</string>
 
+    <string name="googleCloudVisionApi" translatable="false">AIzaSyDLXOgMfNnFyqrctmhvijYKHXfzEbRabXU</string>
+
     <string name="selectImage">Seleccionar imagen</string>
     <string name="errorSelectImage">Hubo un error. Intente de nuevo mas tarde.</string>
+    <string name="noImageSelected">Debe seleccionar una imagen para continuar.</string>
 </resources>

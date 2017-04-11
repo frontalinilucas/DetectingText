@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "BASE_GCV_API_URL", "\"https://vision.googleapis.com/\""
     }
     buildTypes {
         release {
@@ -23,6 +24,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
     })
     compile 'com.android.support:design:25.2.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
@@ -33,4 +35,15 @@ dependencies {
      */
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+    /**
+     * JSON serializer / deserializer
+     */
+    compile 'com.google.code.gson:gson:2.7'
+
+    /**
+     * Retrofit
+     */
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
 }
