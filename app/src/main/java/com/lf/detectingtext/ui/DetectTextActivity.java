@@ -49,7 +49,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class DetectTextActivity extends BaseActivity {
 
     private static final String KEY_IMAGE_URI = "KEY_IMAGE_URI";
-    private static final int CIRCLE_RADIUS = 7;
+    private static final int CIRCLE_RADIUS = 12;
 
     private IApiGoogleCloudVision mApiServices;
     private Uri mUri;
