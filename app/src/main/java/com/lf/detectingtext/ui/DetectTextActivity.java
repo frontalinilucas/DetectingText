@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
@@ -13,7 +12,6 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -21,9 +19,6 @@ import com.lf.detectingtext.BuildConfig;
 import com.lf.detectingtext.R;
 import com.lf.detectingtext.adapter.DetectTextAdapter;
 import com.lf.detectingtext.interfaces.IApiGoogleCloudVision;
-import com.lf.detectingtext.model.request.AnnotationRequest;
-import com.lf.detectingtext.model.request.Feature;
-import com.lf.detectingtext.model.request.Image;
 import com.lf.detectingtext.model.request.VisionRequest;
 import com.lf.detectingtext.model.response.VisionResponse;
 import com.lf.detectingtext.utils.Constants;
@@ -130,7 +125,7 @@ public class DetectTextActivity extends BaseActivity {
         String encoded = Base64.encodeToString(byteArrayOutputStream .toByteArray(), Base64.DEFAULT).replaceAll("\n", "");
 
         VisionRequest request = new VisionRequest(encoded);
-        Call<VisionResponse> callResponse = mApiServices.textDetection(request);
+        Call<VisionResponse> callResponse = mApiServices.textDetection(getString(R.string.googleCloudVisionApi), request);
         callResponse.enqueue(new Callback<VisionResponse>() {
             @Override
             public void onResponse(Call<VisionResponse> call, Response<VisionResponse> response) {
